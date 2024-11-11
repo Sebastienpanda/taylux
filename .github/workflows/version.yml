@@ -12,19 +12,23 @@ jobs:
   version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: 8
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
 
       - name: Configure Git
         run: |
@@ -33,14 +37,14 @@ jobs:
 
       - name: Update versions
         run: |
-          cd packages/core && pnpm version \${{ github.event.inputs.version }} --no-git-tag-version
-          cd ../react && pnpm version \${{ github.event.inputs.version }} --no-git-tag-version
-          cd ../vue && pnpm version \${{ github.event.inputs.version }} --no-git-tag-version
+          cd packages/core && pnpm version ${{ github.event.inputs.version }} --no-git-tag-version
+          cd ../react && pnpm version ${{ github.event.inputs.version }} --no-git-tag-version
+          cd ../vue && pnpm version ${{ github.event.inputs.version }} --no-git-tag-version
 
       - name: Commit and tag
         run: |
           git add .
-          git commit -m "chore: bump version to \${{ github.event.inputs.version }}"
-          git tag -a "v\${{ github.event.inputs.version }}" -m "v\${{ github.event.inputs.version }}"
+          git commit -m "chore: bump version to ${{ github.event.inputs.version }}"
+          git tag -a "v${{ github.event.inputs.version }}" -m "v${{ github.event.inputs.version }}"
           git push
           git push --tags
