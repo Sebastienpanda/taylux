@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@taylux/core": ["packages/core/src"],
+            "@taylux/react": ["packages/react/src"],
+            "@taylux/vue": ["packages/vue/src"]
+        }
+    },
+    "references": [{ "path": "./packages/core" }, { "path": "./packages/react" }, { "path": "./packages/vue" }]
+}

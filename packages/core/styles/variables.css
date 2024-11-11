@@ -1,0 +1,22 @@
+:root {
+    /* Colors */
+    --taylux-primary: #2563eb;
+    --taylux-primary-hover: #1d4ed8;
+    --taylux-secondary: #f3f4f6;
+    --taylux-secondary-hover: #e5e7eb;
+    --taylux-white: #ffffff;
+    --taylux-black: #000000;
+
+    /* Sizes */
+    --taylux-size-sm: 32px;
+    --taylux-size-md: 40px;
+    --taylux-size-lg: 48px;
+
+    /* Spacing */
+    --taylux-spacing-sm: 12px;
+    --taylux-spacing-md: 16px;
+    --taylux-spacing-lg: 24px;
+
+    /* Border radius */
+    --taylux-radius: 6px;
+}

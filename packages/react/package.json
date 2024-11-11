@@ -1,0 +1,41 @@
+{
+    "name": "@taylux/react",
+    "version": "0.0.3",
+    "private": false,
+    "main": "./dist/taylux.umd.js",
+    "module": "./dist/taylux.es.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/taylux.es.js",
+            "require": "./dist/taylux.umd.js",
+            "types": "./dist/types/index.d.ts"
+        },
+        "./style.css": "./dist/assets/style.css"
+    },
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite build --watch",
+        "clean": "rm -rf dist"
+    },
+    "dependencies": {
+        "@taylux/core": "0.0.2"
+    },
+    "peerDependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

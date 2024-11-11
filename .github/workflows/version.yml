@@ -1,0 +1,46 @@
+name: Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to bump to (major.minor.patch)"
+        required: true
+        type: string
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Update versions
+        run: |
+          cd packages/core && pnpm version \${{ github.event.inputs.version }} --no-git-tag-version
+          cd ../react && pnpm version \${{ github.event.inputs.version }} --no-git-tag-version
+          cd ../vue && pnpm version \${{ github.event.inputs.version }} --no-git-tag-version
+
+      - name: Commit and tag
+        run: |
+          git add .
+          git commit -m "chore: bump version to \${{ github.event.inputs.version }}"
+          git tag -a "v\${{ github.event.inputs.version }}" -m "v\${{ github.event.inputs.version }}"
+          git push
+          git push --tags
