@@ -1,13 +1,12 @@
 {
     "name": "@taylux/core",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "private": false,
     "main": "./dist/taylux.cjs.js",
     "module": "./dist/taylux.es.js",
     "types": "./dist/types/index.d.ts",
     "files": [
-        "dist",
-        "src/styles"
+        "dist"
     ],
     "exports": {
         ".": {
@@ -15,7 +14,7 @@
             "require": "./dist/taylux.cjs.js",
             "types": "./dist/types/index.d.ts"
         },
-        "./styles/*": "./src/styles/*"
+        "./style.css": "./assets/style.css"
     },
     "scripts": {
         "dev": "vite build --watch",
