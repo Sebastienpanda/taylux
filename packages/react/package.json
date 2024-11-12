@@ -1,6 +1,6 @@
 {
     "name": "@taylux/react",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "private": false,
     "main": "./dist/taylux.umd.js",
     "module": "./dist/taylux.es.js",
@@ -10,8 +10,7 @@
             "import": "./dist/taylux.es.js",
             "require": "./dist/taylux.umd.js",
             "types": "./dist/types/index.d.ts"
-        },
-        "./style.css": "./dist/assets/style.css"
+        }
     },
     "files": [
         "dist"

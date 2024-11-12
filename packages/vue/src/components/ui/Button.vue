@@ -1,14 +1,14 @@
 <template>
-    <button class="btn" :disabled="disabled" @click="emit('click', $event)">
+    <button :class="classes" class="btn" :disabled="disabled" @click="emit('click', $event)">
         <slot></slot>
     </button>
 </template>
 
 <script setup lang="ts">
-import { defineEmits, defineProps } from "vue";
+import { computed, defineEmits, defineProps } from "vue";
 import type { ButtonProps } from "../../types/index.ts";
 
-withDefaults(defineProps<ButtonProps>(), {
+const props = withDefaults(defineProps<ButtonProps>(), {
     size: "medium",
     variant: "primary",
     disabled: false,
@@ -17,6 +17,8 @@ withDefaults(defineProps<ButtonProps>(), {
 const emit = defineEmits<{
     (e: "click", event: MouseEvent): void;
 }>();
+
+const classes = computed(() => ["taylux-button", `taylux-button--${props.variant}`, `taylux-button--${props.size}`]);
 </script>
 
 <style>

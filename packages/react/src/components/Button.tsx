@@ -1,6 +1,4 @@
 import { ButtonProps } from "@taylux/core";
-import "../style/button.css";
-
 export interface ReactButtonProps extends ButtonProps {
     children: React.ReactNode;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

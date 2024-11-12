@@ -1,5 +1,6 @@
 import type { App } from "vue";
 import Button from "./components/ui/Button.vue";
+
 export { Button };
 
 export type { ButtonProps } from "./types/index";

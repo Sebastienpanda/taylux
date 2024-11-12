@@ -1,0 +1,13 @@
+.taylux-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--taylux-radius);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.taylux-button--primary {
+    background-color: var(--taylux-primary);
+    color: white;
+}

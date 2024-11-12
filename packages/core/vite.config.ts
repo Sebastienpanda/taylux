@@ -40,6 +40,8 @@ export default defineConfig({
                 },
             ],
         },
+        cssCodeSplit: false,
+        cssMinify: true,
         sourcemap: false,
         minify: "terser",
         terserOptions: {
