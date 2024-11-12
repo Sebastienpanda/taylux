@@ -1,6 +1,6 @@
 {
     "name": "@taylux/vue",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "private": false,
     "main": "./dist/taylux.umd.js",
     "module": "./dist/taylux.es.js",
